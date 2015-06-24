@@ -1,0 +1,27 @@
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.edsilfer">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name" >
+
+        <provider android:name=".content_provider.RecentSuggestionsProvider"
+                  android:authorities="br.com.edsilfer.content_provider.RecentSuggestionsProvider" />
+
+        <provider android:name=".content_provider.CustomSuggestionsProvider"
+                  android:authorities="br.com.edsilfer.content_provider.CustomSuggestionsProvider" />
+
+        <activity android:name=".Main"
+                  android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="edsilfer.app.default_searchable"
+                android:value="br.com.edsilfer.Main" />
+        </activity>
+    </application>
+</manifest>

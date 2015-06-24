@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_searchable_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/cs_header"
+        layout="@layout/header_layout" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cs_result_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout><!-- From: file:/home/edgar/Desktop/mobile-development/workspace/CustomSearchable/customsearchable/src/main/res/layout/custom_searchable.xml -->

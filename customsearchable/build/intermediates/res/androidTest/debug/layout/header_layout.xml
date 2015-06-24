@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custombar_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_gravity="center_vertical"
+    android:elevation="4dp">
+
+    <RelativeLayout
+        android:id="@+id/custombar_return_wrapper"
+        android:layout_width="55dp"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:background="@drawable/right_oval_ripple"
+        android:focusable="true"
+        android:clickable="true" >
+
+        <ImageView
+            android:id="@+id/custombar_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="#00000000"
+            android:src="@drawable/arrow_left_icon"/>
+    </RelativeLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_toRightOf="@+id/custombar_return_wrapper"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/custombar_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Search..."
+            android:singleLine="true"
+            android:imeOptions=""
+            android:background="#00000000"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/custombar_mic_wrapper"
+        android:layout_width="55dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:background="@drawable/left_oval_ripple"
+        android:focusable="true"
+        android:clickable="true" >
+
+        <ImageView
+            android:id="@+id/custombar_mic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="#00000000"
+            android:src="@drawable/mic_icon"/>
+    </RelativeLayout>
+</RelativeLayout><!-- From: file:/home/edgar/Desktop/mobile-development/workspace/CustomSearchable/custom-searchable/src/main/res/layout/header_layout.xml --><!-- From: file:/home/edgar/Desktop/mobile-development/workspace/CustomSearchable/custom-searchable/build/intermediates/bundles/debug/res/layout/header_layout.xml -->

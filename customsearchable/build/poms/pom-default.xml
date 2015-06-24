@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.edsilfer</groupId>
+  <artifactId>custom-searchable</artifactId>
+  <version>0.0.1-Beta</version>
+  <packaging>aar</packaging>
+  <name>CustomSearchable</name>
+  <description>This repository contains a library that aims to provide a custom searchable interface for android applications</description>
+  <url>https://github.com/edsilfer/custom-searchable</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>edsilfer</id>
+      <name>Edgar Fernandes</name>
+      <email>fernandes.s.edgar@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>https://github.com/edsilfer/custom-searchable.git</connection>
+    <developerConnection>https://github.com/edsilfer/custom-searchable.git</developerConnection>
+    <url>https://github.com/edsilfer/custom-searchable</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.android.support</groupId>
+      <artifactId>recyclerview-v7</artifactId>
+      <version>21.0.3</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.android.support</groupId>
+      <artifactId>design</artifactId>
+      <version>22.2.0</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

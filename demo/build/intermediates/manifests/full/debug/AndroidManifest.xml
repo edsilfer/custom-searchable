@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.edsilfer"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="22"
+        android:targetSdkVersion="22" />
+
+    <application
+        android:name="br.com.customsearchable.util.CustomSearchableContext"
+        android:allowBackup="true"
+        android:label="@string/app_name" >
+        <provider
+            android:name="br.com.edsilfer.content_provider.RecentSuggestionsProvider"
+            android:authorities="br.com.edsilfer.content_provider.RecentSuggestionsProvider" />
+        <provider
+            android:name="br.com.edsilfer.content_provider.CustomSuggestionsProvider"
+            android:authorities="br.com.edsilfer.content_provider.CustomSuggestionsProvider" />
+
+        <activity
+            android:name="br.com.edsilfer.Main"
+            android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="edsilfer.app.default_searchable"
+                android:value="br.com.edsilfer.Main" />
+        </activity>
+        <activity
+            android:name="br.com.customsearchable.SearchActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.Translucent" >
+        </activity>
+        <activity
+            android:name="android.support.v7.widget.TestActivity"
+            android:label="RecyclerViewTestActivity" />
+    </application>
+
+</manifest>
