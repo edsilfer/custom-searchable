@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<ripple
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/rippleEffectWaveColor">
-    <item android:id="@+id/ripple_mask" android:drawable="@color/rippleEffectMaskColor" />
-</ripple><!-- From: file:/home/edgar/Desktop/mobile-development/workspace/custom-searchable/custom-searchable/src/main/res/drawable/ripple.xml --><!-- From: file:/home/edgar/Desktop/mobile-development/workspace/custom-searchable/demo/build/intermediates/exploded-aar/custom-searchable/custom-searchable/unspecified/res/drawable/ripple.xml -->
