@@ -1,6 +1,7 @@
 package br.com.customsearchable.model;
 
-import br.com.customsearchable.util.CustomSearchableContext;
+import android.content.Context;
+
 import br.com.customsearchable.R;
 
 /**
@@ -33,13 +34,13 @@ public class CustomSearchableInfo {
     private static Integer searchMaxLines;
     private static Boolean isTwoLineExhibition;
 
-    static {
+    public CustomSearchableInfo (Context context) {
         // Dimensions
-        barHeight =  CustomSearchableContext.getAppContext().getResources().getDimension(R.dimen.bar_height);
-        resultItemHeight =  CustomSearchableContext.getAppContext().getResources().getDimensionPixelSize(R.dimen.result_item_height);
-        resultItemHeaderTextSize =  CustomSearchableContext.getAppContext().getResources().getDimensionPixelSize(R.dimen.result_item_header_text_size);
-        resultItemSubheaderTextSize =  CustomSearchableContext.getAppContext().getResources().getDimensionPixelSize(R.dimen.result_item_subheader_text_size);
-        searchTextSize =  CustomSearchableContext.getAppContext().getResources().getDimensionPixelSize(R.dimen.search_text_size);
+        barHeight =  context.getResources().getDimension(R.dimen.bar_height);
+        resultItemHeight =  context.getResources().getDimensionPixelSize(R.dimen.result_item_height);
+        resultItemHeaderTextSize =  context.getResources().getDimensionPixelSize(R.dimen.result_item_header_text_size);
+        resultItemSubheaderTextSize =  context.getResources().getDimensionPixelSize(R.dimen.result_item_subheader_text_size);
+        searchTextSize =  context.getResources().getDimensionPixelSize(R.dimen.search_text_size);
 
         // Icons
         barDismissIcon = R.drawable.arrow_left_icon;
@@ -48,19 +49,17 @@ public class CustomSearchableInfo {
         simpleSuggestionsRightIcon = R.drawable.arrow_left_up_icon;
 
         // Colors
-        transparencyColor = CustomSearchableContext.getAppContext().getResources().getColor(R.color.transparency_color);
-        primaryColor = CustomSearchableContext.getAppContext().getResources().getColor(R.color.primaryColor);
-        textPrimaryColor = CustomSearchableContext.getAppContext().getResources().getColor(R.color.textPrimaryColor);
-        textHintColor = CustomSearchableContext.getAppContext().getResources().getColor(R.color.textHintColor);
-        rippleEffectMaskColor = CustomSearchableContext.getAppContext().getResources().getColor(R.color.rippleEffectMaskColor);
-        rippleEffectWaveColor = CustomSearchableContext.getAppContext().getResources().getColor(R.color.rippleEffectMaskColor);
+        transparencyColor = context.getResources().getColor(R.color.transparency_color);
+        primaryColor = context.getResources().getColor(R.color.primaryColor);
+        textPrimaryColor = context.getResources().getColor(R.color.textPrimaryColor);
+        textHintColor = context.getResources().getColor(R.color.textHintColor);
+        rippleEffectMaskColor = context.getResources().getColor(R.color.rippleEffectMaskColor);
+        rippleEffectWaveColor = context.getResources().getColor(R.color.rippleEffectMaskColor);
 
         // Other
         searchMaxLines = 1;
         isTwoLineExhibition = Boolean.FALSE;
     }
-
-    private CustomSearchableInfo () {}
 
     // Getters and Setters _________________________________________________________________________
     public static Boolean getIsTwoLineExhibition() {

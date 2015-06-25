@@ -75,6 +75,9 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Start layout resources with default values
+        new CustomSearchableInfo(this);
+
         this.setContentView(R.layout.custom_searchable);
         this.getWindow().setStatusBarColor(getResources().getColor(R.color.textPrimaryColor));
 
