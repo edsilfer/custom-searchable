@@ -1,13 +1,15 @@
 package br.com.edsilfer.content_provider;
 
+import android.app.SearchManager;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
+import android.util.Log;
 
-import br.com.customsearchable.contract.CustomProviderColumns;
+import br.com.edsilfer.R;
 
 /**
  * This class provides a custom provider that follows the library contract. It fills the cursor with fake
@@ -15,6 +17,7 @@ import br.com.customsearchable.contract.CustomProviderColumns;
  */
 public class CustomSuggestionsProvider extends ContentProvider {
 
+    private static final String TAG = "CustomSuggestionsPr";
     private static final int GET_SAMPLE = 0;
     private static final int GET_CUSTOM_SUGGESTIONS = 1;
 
@@ -24,7 +27,7 @@ public class CustomSuggestionsProvider extends ContentProvider {
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(PROVIDER_NAME, "GET_SAMPLE", GET_SAMPLE);
-        uriMatcher.addURI(PROVIDER_NAME, "suggestions", GET_CUSTOM_SUGGESTIONS);
+        uriMatcher.addURI(PROVIDER_NAME, "suggestions/*", GET_CUSTOM_SUGGESTIONS);
     }
 
     @Override
@@ -39,6 +42,7 @@ public class CustomSuggestionsProvider extends ContentProvider {
             case GET_SAMPLE:
                 return getFakeData();
             case GET_CUSTOM_SUGGESTIONS:
+                Log.i(TAG, "received parameter in query: " + uri.getLastPathSegment());
                 return getFakeData();
             default:
                 throw new IllegalArgumentException("Unknown Uri: " + uri);
@@ -69,23 +73,21 @@ public class CustomSuggestionsProvider extends ContentProvider {
     private Cursor getFakeData () {
         // Columns explanation: http://developer.android.com/guide/topics/search/adding-custom-suggestions.html#HandlingSuggestionQuery
         MatrixCursor mc = new MatrixCursor(new String[] {
-                CustomProviderColumns._ID,
-                CustomProviderColumns.SUGGEST_COLUMN_TEXT_1,
-                CustomProviderColumns.SUGGEST_COLUMN_TEXT_2,
-                CustomProviderColumns.SUGGEST_COLUMN_ICON_1,
-                CustomProviderColumns.SUGGEST_COLUMN_ICON_2,
-                CustomProviderColumns.SUGGEST_COLUMN_INTENT_ACTION,
-                CustomProviderColumns.SUGGEST_COLUMN_INTENT_DATA,
-                CustomProviderColumns.SUGGEST_COLUMN_INTENT_DATA_ID,
-                CustomProviderColumns.SUGGEST_COLUMN_INTENT_EXTRA_DATA,
-                CustomProviderColumns.SUGGEST_COLUMN_QUERY,
-                CustomProviderColumns.SUGGEST_COLUMN_SHORTCUT_ID,
-                CustomProviderColumns.SUGGEST_COLUMN_SPINNER_WHILE_REFRESHING
+                "_ID",
+                SearchManager.SUGGEST_COLUMN_TEXT_1,
+                SearchManager.SUGGEST_COLUMN_TEXT_2,
+                SearchManager.SUGGEST_COLUMN_ICON_1,
+                SearchManager.SUGGEST_COLUMN_ICON_2,
+                SearchManager.SUGGEST_COLUMN_INTENT_ACTION,
+                SearchManager.SUGGEST_COLUMN_INTENT_DATA,
+                SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID,
+                SearchManager.SUGGEST_COLUMN_INTENT_EXTRA_DATA,
+                SearchManager.SUGGEST_COLUMN_QUERY,
         });
 
-        String[] fakeRow1 = {"ID1", "Mock data 1", "Sub mock data 1", null, null, null, null, null, null, null, null, null};
-        String[] fakeRow2 = {"ID2", "Mock data 2", "Sub mock data 2", null, null, null, null, null, null, null, null, null};
-        String[] fakeRow3 = {"ID3", "Mock data 3", "Sub mock data 3", null, null, null, null, null, null, null, null, null};
+        Object[] fakeRow1 = {"ID1", "Mock data 1", "Sub mock data 1", R.drawable.delete_icon, R.drawable.arrow_left_icon, null, null, null, null, null};
+        Object[] fakeRow2 = {"ID2", "Mock data 2", "Sub mock data 2", R.drawable.mic_icon, R.drawable.delete_icon, null, null, null, null, null};
+        Object[] fakeRow3 = {"ID3", "Mock data 3", "Sub mock data 3", null, null, null, null, null, null, null};
 
         mc.addRow(fakeRow1);
         mc.addRow(fakeRow2);

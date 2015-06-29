@@ -12,16 +12,17 @@
         <provider android:name=".content_provider.CustomSuggestionsProvider"
                   android:authorities="br.com.edsilfer.content_provider.CustomSuggestionsProvider" />
 
+        <activity
+        android:name=".ActivityA"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+
         <activity android:name=".Main"
                   android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
-
-            <meta-data
-                android:name="edsilfer.app.default_searchable"
-                android:value="br.com.edsilfer.Main" />
         </activity>
     </application>
 </manifest>

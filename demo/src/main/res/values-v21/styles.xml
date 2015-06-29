@@ -8,7 +8,8 @@
         <item name="android:itemTextAppearance">@style/itemTextStyle.AppTheme</item>
     </style>
 
-    <style name="itemTextStyle.AppTheme" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
-        <item name="android:textColor">@color/text_primary</item>
+    <style name="itemTextStyle.AppTheme"
+           parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/textPrimaryColor</item>
     </style>
 </resources>

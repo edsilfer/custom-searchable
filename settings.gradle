@@ -1,1 +1,1 @@
-include ':demo', ':customsearchable'
+include ':custom-searchable', ':demo'

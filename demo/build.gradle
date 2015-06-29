@@ -21,6 +21,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':customsearchable')
+    compile project(':custom-searchable')
     compile 'com.android.support:design:22.2.0'
 }

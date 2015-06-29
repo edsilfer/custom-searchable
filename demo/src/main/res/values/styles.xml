@@ -7,4 +7,9 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
     </style>
+
+    <style name="TextAppearence.App.TextInputLayout"
+           parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/textPrimaryColor</item>
+    </style>
 </resources>

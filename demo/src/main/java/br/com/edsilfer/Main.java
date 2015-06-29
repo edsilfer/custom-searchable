@@ -2,8 +2,8 @@ package br.com.edsilfer;
 
 import android.app.SearchManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.SearchRecentSuggestions;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -11,8 +11,8 @@ import android.view.MenuItem;
 
 import br.com.customsearchable.SearchActivity;
 import br.com.customsearchable.contract.CustomSearchableConstants;
+import br.com.customsearchable.model.CustomSearchableInfo;
 import br.com.customsearchable.model.ResultItem;
-import br.com.edsilfer.content_provider.RecentSuggestionsProvider;
 
 /**
  * Main activity: demo for CustomSeachable library
@@ -26,7 +26,7 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a);
 
-        // CustomSearchableInfo.setIsTwoLineExhibition(Boolean.TRUE);
+        CustomSearchableInfo.setTransparencyColor(Color.parseColor("#ccE3F2FD"));
 
         Intent intent = getIntent();
         handleIntent(intent);
@@ -43,10 +43,7 @@ public class Main extends AppCompatActivity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
 
-            SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this, RecentSuggestionsProvider.AUTHORITY, RecentSuggestionsProvider.MODE);
-            suggestions.saveRecentQuery(query, null);
-
-            Log.i("handleIntent","Received query: " + query);
+            Log.i("Main", "Received query: " + query);
         } else if (Intent.ACTION_VIEW.equals(intent.getAction())) {
             Bundle bundle = this.getIntent().getExtras();
 
