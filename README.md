@@ -5,6 +5,9 @@ This library is in test phase, if you find any bugs, please report as an issue
 * [Introduction](#intro)
 * [Showcase](#showcase)
 * [How to use](#how-to-use)
+* [Quicky setup](#quicky-setup)
+* [Cursor Columns](#columns)
+* [Customizing the Searchable Interface](#customizing-searchable-ui)
 * [TODO List](#to-do)
 * [Team Members](#team-members)
 * [License](#license)
@@ -27,8 +30,8 @@ As said before, this library was build upon the same model as [Android Search In
 
 Both methods discribed above work with Content Providers, if you never have worked with them I suggest read [this](http://developer.android.com/guide/topics/providers/content-provider-creating.html) article before continuing.
 
-**Quicky set-up:**
- - Add the library as dependency. Currently it is only hosted at JCenter repository (but it should be enought right?):
+# <a name="quicky-setup">**Quicky set-up:**
+ - **Add the library as dependency**: currently it is only hosted at JCenter repository (but it should be enought right?):
 ```
 repositories {
     repositories {
@@ -75,7 +78,7 @@ dependencies {
     }
 ```
 
-PS2.: Note that the POJO class ```ResultItem``` holds the abstraction for the information present in one suggestion line;
+PS1.: Note that the POJO class ```ResultItem``` holds the abstraction for the information present in one suggestion line;
  
  - **Customize the search activity layout**: see customizing the layout [section](#customizing-searchable-ui");
 
@@ -89,9 +92,9 @@ The custom-searchable library queries a content provider everytime that the user
  - ```java SearchManager.SUGGEST_COLUMN_ICON_1```: stores the Resource ID for the result-item left icon;
  - ```javaSearchManager.SUGGEST_COLUMN_ICON_2```: stores the Resource ID for the result-item right icon;
 
-PS1: ```SearchManager``` is an OOTB class of Android, to use its columns constants add ```java import android.app.SearchManager;``` in your class;
+PS2: ```SearchManager``` is an OOTB class of Android, to use its columns constants add ```java import android.app.SearchManager;``` in your class;
 
-<a name="customizing-searchable-ui">**Customizing the Searchable Interface**
+# <a name="customizing-searchable-ui">**Customizing the Searchable Interface**
 The class ```CustomSearchableInfo``` provides the following attributes that helps you to customize your search interface:
 
  * ``barHeight```: sets the search bar header height (defaul it 56dp);
@@ -113,7 +116,7 @@ The class ```CustomSearchableInfo``` provides the following attributes that help
 
 In order to customize the SearchActivity layout interface with those above attributes, just call the set for them from the class ```CustomSearchableInfo```.
 
-<a name="two-line-mode">**Working in two line mode**
+# <a name="two-line-mode">**Working in two line mode**
 The result-item list can work with one or two lines - the defaul is one line. If you want to work with two line, you've got to specify this behaviour through ```CustomSearchableInfo``` class. When working in the one-line mode, the library takes care of adding the queried words that the user have typed for you, hoewever, if you set your app to work with the two-line mode, you're the only who can decide what to put in the second line when storing it. So, you should implement the ```insert``` method right after receiving the query intent. Example:
 
 ```java
