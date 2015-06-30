@@ -1,5 +1,5 @@
 # Current Version: [ ![Download](https://api.bintray.com/packages/edsilfer/maven/custom-searchable/images/download.svg) ](https://bintray.com/edsilfer/maven/custom-searchable/_latestVersion)
-This library in test phase, if you find any bugs, please report as an issue
+This library is in test phase, if you find any bugs, please report as an issue
 
 # Table of Contents
 * [Introduction](#intro)
