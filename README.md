@@ -28,6 +28,19 @@ As said before, this library was build upon the same model as [Android Search In
 Both methods discribed above work with Content Providers, if you never have worked with them I suggest read this article before continuing: link;
 
 **Quicky set-up:**
+ - Add the library as dependency, currently it is only hosted at JCenter repository (but it should be enought riht?):
+```
+repositories {
+    repositories {
+        jcenter()
+    }
+}
+
+dependencies {
+    compile 'br.com.edsilfer:custom-searchable:0.0.6-Beta'
+}
+```
+
  - Creates a provider that will send back suggestions to your  app user (the cursor that you'll delivery as a response of the query method shall have the columns dicribed in the columns section). You can refer to [RecentSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/RecentSuggestionsProvider.java) or [CustomSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/CustomSuggestionsProvider.java) for content providers implementation examples - you can also check out this official [tutorial](http://developer.android.com/guide/topics/search/adding-custom-suggestions.html);;
  
  - Register the provider in your AndroidManifest.xml file. Keep in mind that in the case where you have multiple content providers, the one that extends ```SearchRecentSuggestionsProvider``` will always have priority. In case that you have multiple custom content providers (and none that descends from ```SearchRecentSuggestionsProvider```), the last declared one will be take into consideration when quering;
