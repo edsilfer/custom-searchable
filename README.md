@@ -84,7 +84,7 @@ PS1.: Note that the POJO class ```ResultItem``` holds the abstraction for the in
 
  - **Call the SearchActivity**: call ```startActivity()``` passing it an Intent;
 
-<a name="columns">**Cursor columns**
+# <a name="columns">**Cursor columns**
 The custom-searchable library queries a content provider everytime that the user types a new letter in the search content. As a result of this query, based on the content provider interface contract, a cursor shall be returned to it. This cursor **must** contain the following columns:
 
  - ```java SearchManager.SUGGEST_COLUMN_TEXT_1```: stores the information to be displayed in the result-item first line;
@@ -125,9 +125,8 @@ suggestions.saveRecentQuery(queryString, "Second Line Content");
 ```
 
 # <a name="to-do"></a>TODO List
-* Upload library into JCenter/Maven;
-* Parse icons corresponding columns from return cursor of query method;
-* Implement functionalities for the columns descrobed in the ```CustomProviderColumns````contract
+* ~~Upload library into JCenter/Maven;~~
+* ~~Parse icons corresponding columns from return cursor of query method;~~
 * Add text-complete as suggestions in the search input text;
 
 # <a name="team-members"></a>Team Members
