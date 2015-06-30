@@ -17,7 +17,7 @@ Often apps need to offer the user a place where to search for content related to
 
 _Why should I use Custom Searchable instead of Android Search Interface?_
 
-[Android Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) is good however, it might be hard - or even impossible - to customize. Custom Searchable library, in the other hand, provides an easy to configure interface through which the developer can customize some of the UI elements.
+[Android Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) is good, however, it might be hard - or even impossible - to customize the UI components. Custom Searchable library, in the other hand, provides an easy to configure interface through which the developer can customize some of the UI elements.
  
 # <a name="showcase"></a>Showcase
 _Under construction_
