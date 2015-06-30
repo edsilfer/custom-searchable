@@ -13,6 +13,7 @@ This library is in test phase, if you find any bugs, please report as an issue
 Often apps need to offer the user a place where to search for content related to the current application. Building a good user interface to stand for this behavior might be anoying or simply do not fit in the developer's time window. Thinking in those situations, Custom Searchable is a library that intends to offer a clean gmail-like search interface. 
 
 _Why should I use Custom Searchable instead of Android Search Interface?_
+
 [Android Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) is good however, it might be hard - or even impossible - to customize. Custom Searchable library, in the other hand, provides an easy to configure interface through which the developer can customize some of the UI elements.
  
 # <a name="showcase"></a>Showcase
