@@ -1,7 +1,5 @@
-# Custom Searchable
-**Currently this library is under construction and not ready for production**
-
-This repository contains a library that aims to provide a custom searchable interface for android applications.
+# Current Version: [ ![Download](https://api.bintray.com/packages/edsilfer/maven/custom-searchable/images/download.svg) ](https://bintray.com/edsilfer/maven/custom-searchable/_latestVersion)
+This library in test phase, if you find any bugs, please report as an issue
 
 # Table of Contents
 * [Introduction](#intro)
@@ -12,77 +10,75 @@ This repository contains a library that aims to provide a custom searchable inte
 * [License](#license)
  
 # <a name="intro"></a>Introduction
-Android provides developers with an out-of-the-box search interface [(link)](http://developer.android.com/guide/topics/search/search-dialog.html), however this API might not fit your app usage, mainly when it comes to layout configuration. In order to compensate this, Custom Searchable library was created. It provides easy layout configuration such as
+Often apps need to offer the user a place where to search for content related to the current application. Building a good user interface to stand for this behavior might be anoying or simply not do not fit in the developer's time frame. Thinking in these situations, Custom Searchable is a library that intends to offer a clean gmail-like search interface. 
 
- - **Search bar customization:** height, background color, left and rightIcons customization, search text size and color;
- - **Result list customization:** row height, ripple-effect color, left and right icon, two text lines per row with standard text customization;
+_Why should I use Custom Searchable instead of Android Search Interface?_
+
+[Android Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) is good however it might be hard - or even impossible - to customize. Custom Searchable library, in the other hand, provides an easy to configure interface through which the developer can customize some of the UI elements.
  
 # <a name="showcase"></a>Showcase
 _Under construction_
 
 # <a name="how-to-use"></a>How to use
-The custom searchable interface is delivered to the user as an activity called Search Activity. The mechanism to use this API is based on the OOTB Searchable Interface. Said that, the developer has two options:
+As said before, this library was build upon the same model as [Android Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) (or at least I've tried to do so), therefore it is implied that the control of the content to display, as result to the user search, is of developer's responsability. There are basically two types of content that can be displayed: 
 
-* **Simple Recent Suggestions:** provides a list with the recent search performed by the user;
-* **Custom Suggestion:** Allows the developer to provider custom suggestions based on the information typed by the user;
+ - **Recent Suggestions:** displays suggestions based in the user recent typed queries;
+ - **Custom Suggestions:** performs some processing over the user's typed data and deliveries some feedback based on its result;
 
-<a name="implSimpleSugInt">Implementing a Simple Recent Suggestion interface
--------------------------------------------------
-In order to implement a simple recent suggestion interface, follow the steps bellow:
+Both methods discribed above work with Content Providers, if you never have worked with them I suggest read this article before continuing: link;
 
-1. Implement a SuggestioionProvider that extends the ``` SearchRecentSuggestionsProvider ```. Information about coontent providers can be found [here](http://developer.android.com/guide/topics/search/adding-custom-suggestions.html);
-
-2. Define the  searchable activity to which the search intents will be delivered in your AndroiManifest.xml:
-
-``` xml
-<meta-data
-        android:name="edsilfer.app.default_searchable"
-        android:value="br.com.edsilfer.Main" />
-```
-PS1.: In the ```android:value``` property you **must** specify the entire path to your activity;
-3. Declare your provider in in your AndroiManifest.xml:
-
-``` xml
- <provider android:name=".content_provider.RecentSuggestionsProvider"
+**Quicky set-up:**
+ - Creates a provider that will send back suggestions to your  app user (the cursor that you'll delivery as a response of the query method shall have the columns dicribed in the columns section). You can refer to [RecentSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/RecentSuggestionsProvider.java) or [CustomSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/CustomSuggestionsProvider.java) for content providers implementation examples - you can also check out this official [tutorial](http://developer.android.com/guide/topics/search/adding-custom-suggestions.html);;
+ 
+ - Register the provider in your AndroidManifest.xml file. Keep in mind that in the case where you have multiple content providers, the one that extends ```SearchRecentSuggestionsProvider``` will always have priority. In case that you have multiple custom content providers (and none that descends from ```SearchRecentSuggestionsProvider```), the last declared one will be take into consideration when quering;
+  ```xml
+  <provider android:name=".content_provider.RecentSuggestionsProvider"
     android:authorities="br.com.edsilfer.content_provider.RecentSuggestionsProvider" />
-```
-PS2.: The ```android:authorities``` property **must** specify the entire path to your provider;
+  
+  <provider android:name=".content_provider.CustomSuggestionsProvider"
+   android:authorities="br.com.edsilfer.content_provider.CustomSuggestionsProvider" />
+  ```
+ - Set your searchable activity: searchable activity is the one that will receive the intents with the user typed data and/or the selected suggestion list item. To set your activity as searchable, just register it to receive the intents ```Intent.ACTION_SEARCH```;
 
-4. In your searchable activity class, add code for handling the search intent:
-
-``` java
+ - In your searchable activity class, add code for handling the search intent:
+```java
     // Handles the intent that carries user's choice in the Search Interface
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            // Receives typed query
             String query = intent.getStringExtra(SearchManager.QUERY);
-
-            SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this, RecentSuggestionsProvider.AUTHORITY, RecentSuggestionsProvider.MODE);
-            suggestions.saveRecentQuery(query, null);
+            
+            // Do complex processing ...
         } else if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+            // Receives suggested clicked item
             Bundle bundle = this.getIntent().getExtras();
-            assert (bundle != null);
+            
             if (bundle != null) {
                 ResultItem receivedItem = bundle.getParcelable(CustomSearchableConstants.CLICKED_RESULT_ITEM);
 
-                Log.i("RI.header", receivedItem.getHeader());
-                Log.i("RI.subHeader", receivedItem.getSubHeader());
-                Log.i("RI.leftIcon", receivedItem.getLeftIcon().toString());
-                Log.i("RI.rightIcon", receivedItem.getRightIcon().toString());
+                // Do complex processing
             }
         }
     }
 ```
-5. Call the SearchActivity through ```startActivity()``` passing it an Intent;
 
-<a name="implCustomSugInt">Implementing a Custom Suggestion interface
-------------------------------------------
-In order to implement a custom suggestion interface, follow the steps bellow:
+PS2.: Note that the POJO class ```ResultItem``` hold the abstraction for the information present in one suggestion line;
+ 
+ - Customize the search activity layout - see customizing the layout [section](#customizing-searchable-ui");
 
-1. Create a content provider that follows the column contrat specified in the file ```CustomProviderColumns```;
-2. Follow the steps 1 to 5 of the section (#implSimpleSugInt);
+ - Call the SearchActivity through ```startActivity()``` passing it an Intent;
 
-Customizing the Searchable Interface
-------------------------------------------
+**Cursor columns**
+The custom-searchable library queries a content provider everytime that the user types a new letter in the search content. As a result of this query, based on the content provider interface contract, a cursor shall be returned to it. This cursor must contain the following columns:
+
+ - ```java SearchManager.SUGGEST_COLUMN_TEXT_1```: stores the information to be displayed in the result-item first line;
+ - ```java SearchManager.SUGGEST_COLUMN_TEXT_2```: stores the information to be displayed in the result-item seconde line (when set to work in two-line mode);
+ - ```java SearchManager.SUGGEST_COLUMN_ICON_1```: store the Resource ID for the result-item left icon;
+ - ```javaSearchManager.SUGGEST_COLUMN_ICON_2```: store the Resource ID for the result-item right icon;
+
+PS1: ```SearchManager``` is an OOTB class of Android, to use its columns constants add ```java import android.app.SearchManager;``` in your class;
+
+<a name="customizing-searchable-ui">**Customizing the Searchable Interface**
 The class ```CustomSearchableInfo``` provides the following attributes that helps you to customize your search interface:
 
  * ``barHeight```: sets the search bar header height (defaul it 56dp);
