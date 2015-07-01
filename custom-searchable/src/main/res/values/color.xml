@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="transparency_color">#ccffffff</color>
+    <color name="primaryColor">#FAFAFA</color>
+
+    <color name="textPrimaryColor">#828282</color>
+    <color name="textHintColor">#FAFAFA</color>
+
+    <color name="rippleEffectMaskColor">#FAFAFA</color>
+    <color name="rippleEffectWaveColor">#bbbbbb</color>
+</resources>

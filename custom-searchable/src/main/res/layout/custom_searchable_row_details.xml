@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/result_item_height"
+    android:gravity="center_vertical"
+    android:padding="12dp"
+    android:focusable="true"
+    android:clickable="true"
+    android:background="@drawable/ripple" >
+
+    <ImageView
+        android:id="@+id/rd_left_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/clock_icon" />
+
+    <LinearLayout
+        android:id="@+id/rd_wrapper"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@+id/rd_left_icon"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="50dp">
+
+        <TextView
+            android:id="@+id/rd_header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textPrimaryColor"
+            android:text="Header"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/rd_sub_header_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textPrimaryColor"
+            android:text="Sub Header"
+            android:textSize="14dp"
+            android:maxLines="1" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/rd_right_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/arrow_left_up_icon"/>
+</RelativeLayout>
