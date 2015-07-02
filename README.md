@@ -97,7 +97,11 @@ PS2: ```SearchManager``` is an OOTB class of Android, to use its columns constan
 # <a name="customizing-searchable-ui">**Customizing the Searchable Interface**
 The class ```CustomSearchableInfo``` provides the following attributes that helps you to customize your search interface:
 
- * ``barHeight```: sets the search bar header height (defaul it 56dp);
+<p align="center">
+<img src="art/showcase-ss-01.png" width="350" align="center">
+</p>
+
+ * ```barHeight```: sets the search bar header height (defaul it 56dp);
  * ```resultItemHeight```: sets the result item brought in the result list height (default is 60dp);
  * ```resultItemHeaderTextSize```: sets the result item header text size (default is 16dp);
  * ```resultItemSubheaderTextSize```: sets the result item sub-header (when working with two-line mode) text size (default is 14dp);
