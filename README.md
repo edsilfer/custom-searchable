@@ -13,11 +13,11 @@ This library is in test phase, if you find any bugs, please report as an issue
 * [License](#license)
  
 # <a name="intro"></a>Introduction
-Often apps need to offer the user a place where to search for content related to the current application. Building a good user interface to stand for this behavior might be anoying or simply do not fit in the developer's time window. Thinking in those situations, Custom Searchable is a library that intends to offer a clean gmail-like search interface. 
+Often apps need to offer the user a place where to search for content related to the current application. Building a good user interface to stand for this behavior might be anoying or simply do not fit in the developer's time window. Thinking in those situations, Custom Searchable is a library that intends to provide a clean gmail-like search interface. 
 
 _Why should I use Custom Searchable instead of Android Search Interface?_
 
-[Android Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) is good, however, it might be hard - or even impossible - to customize the UI components. Custom Searchable library, in the other hand, provides an easy to configure interface through which the developer can customize some of the UI elements.
+[Android Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) is good, however, it might be hard - or even impossible - to customize the UI components. Custom Searchable Library, in the other hand, provides an easy to configure interface through which the developer can customize some of the UI elements.
  
 # <a name="showcase"></a>Showcase
 <p align="center">
@@ -43,11 +43,11 @@ repositories {
 }
 
 dependencies {
-    compile 'br.com.edsilfer:custom-searchable:0.0.6-Beta'
+    compile 'br.com.edsilfer:custom-searchable:0.1.0-Beta'
 }
 ```
 
- - **Create a provider**: it will be queried to show suggestions to your app's user (the cursor that you'll delivery as a response of the query method shall have the columns dicribed in the [columns](#columns) section). You can refer to [RecentSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/RecentSuggestionsProvider.java) or [CustomSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/CustomSuggestionsProvider.java) for content providers implementation examples - you can also check out this official [tutorial](http://developer.android.com/guide/topics/search/adding-custom-suggestions.html);;
+ - **Create a provider**: it will be queried to show suggestions to your app's user (the cursor that you'll delivery as a response of the query method must have the columns dicribed in the [columns](#columns) section). You can refer to [RecentSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/RecentSuggestionsProvider.java) or [CustomSuggestionsProvider ](demo/src/main/java/br/com/edsilfer/content_provider/CustomSuggestionsProvider.java) for content providers implementation examples - you can also check out this official [tutorial](http://developer.android.com/guide/topics/search/adding-custom-suggestions.html);;
  
  - **Register the provider in your ```AndroidManifest.xml``` file**: keep in mind that in the case where you have multiple content providers, the one that extends ```SearchRecentSuggestionsProvider``` will always have priority. In case that you have multiple custom content providers (and none that descends from ```SearchRecentSuggestionsProvider```), the last declared will be take into consideration when quering. Example:
   ```xml
