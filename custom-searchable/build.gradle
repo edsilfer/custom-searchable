@@ -6,12 +6,12 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
-        minSdkVersion 22
-        targetSdkVersion 22
+        minSdkVersion 18
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -36,7 +36,7 @@ ext {
     siteUrl = 'https://github.com/edsilfer/custom-searchable'
     gitUrl = 'https://github.com/edsilfer/custom-searchable.git'
 
-    libraryVersion = '0.0.6-Beta'
+    libraryVersion = '0.1.0-Beta'
 
     developerId = 'edsilfer'
     developerName = 'Edgar Fernandes'
@@ -52,6 +52,8 @@ ext {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:design:22.2.0'
-    compile 'com.android.support:recyclerview-v7:21.0.3'
+    compile 'com.android.support:support-v4:23.0.0'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.1.1'
 }
